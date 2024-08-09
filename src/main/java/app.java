@@ -95,8 +95,8 @@ public class app extends javax.swing.JFrame {
         tTanggalLahir = new com.toedter.calendar.JDateChooser();
         tJurusan = new javax.swing.JComboBox<>();
         tAlamat = new javax.swing.JTextField();
-        pFoto = new javax.swing.JLabel();
         tFoto = new javax.swing.JLabel();
+        aFoto = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         vNis = new javax.swing.JLabel();
         vNama = new javax.swing.JLabel();
@@ -173,18 +173,22 @@ public class app extends javax.swing.JFrame {
 
         tJurusan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "IPA", "IPS", "BAHASA" }));
 
-        pFoto.setForeground(new java.awt.Color(255, 255, 255));
-        pFoto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        pFoto.setText("foto");
-        pFoto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        pFoto.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                pFotoMouseClicked(evt);
-            }
-        });
-
         tFoto.setForeground(new java.awt.Color(39, 174, 96));
         tFoto.setText("jLabel9");
+
+        aFoto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        aFoto.setText("foto");
+        aFoto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        aFoto.addMouseWheelListener(new java.awt.event.MouseWheelListener() {
+            public void mouseWheelMoved(java.awt.event.MouseWheelEvent evt) {
+                aFotoMouseWheelMoved(evt);
+            }
+        });
+        aFoto.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                aFotoMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -193,9 +197,6 @@ public class app extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addContainerGap())
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)
@@ -215,23 +216,23 @@ public class app extends javax.swing.JFrame {
                             .addComponent(tTempatLahir, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(tTanggalLahir, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(tAlamat)
-                            .addComponent(tJurusan, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 99, Short.MAX_VALUE)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(pFoto, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE)
-                                .addGap(15, 15, 15))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(tFoto)
-                                .addGap(67, 67, 67))))))
+                            .addComponent(tJurusan, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jLabel2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 94, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(tFoto)
+                        .addGap(67, 67, 67))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(aFoto, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(38, 38, 38))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(9, 9, 9)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(9, 9, 9)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
                             .addComponent(tNis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -256,11 +257,10 @@ public class app extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(tJurusan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(pFoto, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(aFoto, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(tFoto)
                         .addGap(3, 3, 3)))
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -427,31 +427,11 @@ public class app extends javax.swing.JFrame {
 
     private void bResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bResetActionPerformed
         reset();
-        pFoto.setIcon(null);
-        pFoto.setText("");
+        aFoto.setIcon(null);
+        aFoto.setText("");
     }
     {
     }//GEN-LAST:event_bResetActionPerformed
-
-    private void pFotoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pFotoMouseClicked
-        try {
-            JFileChooser chooser = new JFileChooser();
-            chooser.showOpenDialog(null);
-            File file = chooser.getSelectedFile();
-            ImageIcon icon = new ImageIcon(file.toString());
-            Image image = icon.getImage().getScaledInstance(pFoto.getWidth(), pFoto.getHeight(), Image.SCALE_SMOOTH);
-            ImageIcon ic = new ImageIcon(image);
-            pFoto.setText("");
-            pFoto.setIcon(ic);
-            String filename = file.getAbsolutePath();
-            tFoto.setText(filename);
-        }catch (Exception e){
-            JOptionPane.showMessageDialog(null, "Upload" + e);
-        }
-        
-        {
-        }
-    }//GEN-LAST:event_pFotoMouseClicked
 
     private void tNisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tNisActionPerformed
         // TODO add your handling code here:
@@ -460,6 +440,30 @@ public class app extends javax.swing.JFrame {
     private void tNamaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tNamaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tNamaActionPerformed
+
+    private void aFotoMouseWheelMoved(java.awt.event.MouseWheelEvent evt) {//GEN-FIRST:event_aFotoMouseWheelMoved
+        // TODO add your handling code here:
+    }//GEN-LAST:event_aFotoMouseWheelMoved
+
+    private void aFotoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aFotoMouseClicked
+    try {
+            JFileChooser chooser = new JFileChooser();
+            chooser.showOpenDialog(null);
+            File file = chooser.getSelectedFile();
+            ImageIcon icon = new ImageIcon(file.toString());
+            Image image = icon.getImage().getScaledInstance(aFoto.getWidth(), aFoto.getHeight(), Image.SCALE_SMOOTH);
+            ImageIcon ic = new ImageIcon(image);
+            aFoto.setText("");
+            aFoto.setIcon(ic);
+            String filename = file.getAbsolutePath();
+            tFoto.setText(filename);
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(null, "Upload" + e);
+        }
+        
+        {
+        }       
+    }//GEN-LAST:event_aFotoMouseClicked
 
     /**
      * @param args the command line arguments
@@ -498,6 +502,7 @@ public class app extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup Kelamin;
+    private javax.swing.JLabel aFoto;
     private javax.swing.JButton bReset;
     private javax.swing.JButton bSimpan;
     private javax.swing.JLabel jLabel1;
@@ -511,7 +516,6 @@ public class app extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JLabel pFoto;
     private javax.swing.JRadioButton rLaki;
     private javax.swing.JRadioButton rPer;
     private javax.swing.JTextField tAlamat;
